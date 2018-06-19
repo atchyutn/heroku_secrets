@@ -1,12 +1,10 @@
 # HerokuSecrets
-
-TODO: Write a gem description
-
+A gem to Use your secret_key_base to Heroku even you add config/secrets.yml file in .gitignore 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'heroku_secrets'
+    gem 'heroku_secrets', github: 'atchyutn/heroku_secrets'
 
 And then execute:
 
@@ -20,8 +18,12 @@ Or install it yourself as:
 
 To push secrets to Heroku in Rails:
 
+First:
+replace the `<%= ENV["SECRET_KEY_BASE"] %>` value in the productions part of your secrets.yml file with the 'SECRET_KEY_BASE' from heroku which you can get by using the command `heroku config`
+
+Then to push secrets to Heroku in Rails:
 ```sh
-bin/rake heroku:secrets RAILS_ENV=production
+bin/rake heroku:secrets\[nameofyourapponheroku\] RAILS_ENV=production
 ```
 ## Contributing
 
